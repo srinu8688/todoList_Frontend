@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getGroups, deleteGroup } from '../../services/groupService';
+import { getGroups, createGroup, deleteGroup } from '../../services/groupService';
 import { createTask, getTasks, updateTask, deleteTask } from '../../services/taskService';
 import { useAuth } from '../../contexts/AuthContext';
 import GroupList from '../../components/GroupList/GroupList';
@@ -36,7 +36,8 @@ const HomePage = () => {
     } catch (err) {
       console.error('Failed to fetch groups:', err);
       if (err.response?.status === 401) {
-        window.location.href = '/login';
+        alert('Your session has expired. Please login again.');
+        logout();
       }
     }
   };
@@ -57,9 +58,9 @@ const HomePage = () => {
 
   const handleAddGroup = async (groupData) => {
     try {
-      const response = await api.post('/groups', groupData);
-      setGroups([...groups, response.data]);
-      return response.data;
+      const newGroup = await createGroup(groupData);
+      setGroups([...groups, newGroup]);
+      return newGroup;
     } catch (error) {
       console.error('Failed to create group:', error);
       if (error.response?.status === 401) {
@@ -139,7 +140,7 @@ const HomePage = () => {
     }
   };
 
-  console.log('HomePage: setTasks type:', typeof setTasks); // Debug
+  console.log('HomePage: setTasks type:', typeof setTasks);
 
   return (
     <div className="homepage-container">

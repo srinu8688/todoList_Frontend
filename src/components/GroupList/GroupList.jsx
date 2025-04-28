@@ -8,13 +8,14 @@ const GroupList = ({ groups, setGroups, onSelectGroup, onDeleteGroup, selectedGr
   const [editGroupDescription, setEditGroupDescription] = useState('');
   const [error, setError] = useState('');
 
-  // Debug: Log props
   console.log('GroupList props:', { setGroups: typeof setGroups, groups });
 
   const handleEditClick = (group) => {
-    const token = localStorage.getItem('token');
-    console.log('Token:', token); // Debug: Log token
+    const user = JSON.parse(localStorage.getItem('user')); // Fix: Use 'user' key
+    const token = user?.token;
+    console.log('Token:', token);
     if (!token) {
+      console.warn('No token found, redirecting to login');
       window.location.href = '/login';
       return;
     }
@@ -31,12 +32,12 @@ const GroupList = ({ groups, setGroups, onSelectGroup, onDeleteGroup, selectedGr
     }
 
     try {
-      console.log('Saving:', { groupId, name: editGroupName, description: editGroupDescription }); // Debug: Log payload
+      console.log('Saving:', { groupId, name: editGroupName, description: editGroupDescription });
       const updatedGroup = await updateGroup(groupId, {
         name: editGroupName,
         description: editGroupDescription,
       });
-      console.log('API response:', updatedGroup); // Debug: Log response
+      console.log('API response:', updatedGroup);
       if (!updatedGroup._id) {
         throw new Error('Invalid group response');
       }
@@ -44,10 +45,9 @@ const GroupList = ({ groups, setGroups, onSelectGroup, onDeleteGroup, selectedGr
         const newGroups = prevGroups.map((g) =>
           g._id === groupId ? { ...g, ...updatedGroup } : g
         );
-        console.log('Updated groups:', newGroups); // Debug: Log new state
+        console.log('Updated groups:', newGroups);
         return newGroups;
       });
-      // Update selectedGroup if it was edited
       if (selectedGroupId === groupId) {
         onSelectGroup(updatedGroup);
       }
@@ -57,8 +57,17 @@ const GroupList = ({ groups, setGroups, onSelectGroup, onDeleteGroup, selectedGr
       setError('');
     } catch (err) {
       const errorMessage = err.response?.data?.message || err.message || 'Failed to update group';
-      console.error('Error details:', err, err.stack); // Debug: Log full error
+      console.error('Update group error:', {
+        message: err.message,
+        status: err.response?.status,
+        data: err.response?.data,
+      });
       setError(errorMessage);
+      if (err.response?.status === 401) {
+        console.warn('Unauthorized, redirecting to login');
+        localStorage.removeItem('user');
+        window.location.href = '/login';
+      }
     }
   };
 
