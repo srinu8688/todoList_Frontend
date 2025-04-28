@@ -1,0 +1,137 @@
+/* Container for the form */
+.group-form {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  /* Hover effect for the entire form */
+  .group-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Form group styling */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  /* Labels */
+  .form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Inputs and textarea */
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background-color: #f9fafb;
+    color: #111827;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  /* Focus and hover states for inputs/textarea */
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  }
+  
+  /* Textarea specific styles */
+  .form-group textarea {
+    resize: vertical; /* Allow vertical resize only */
+    min-height: 80px;
+  }
+  
+  /* Placeholder styles */
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #6b7280;
+    opacity: 0.8;
+  }
+  
+  /* Submit button */
+  .submit-btn {
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  
+  /* Button hover and active states */
+  .submit-btn:hover {
+    background-color: #2563eb;
+  }
+  
+  .submit-btn:active {
+    transform: scale(0.98);
+  }
+  
+  /* Disabled button state */
+  .submit-btn:disabled {
+    background-color: #93c5fd;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .group-form {
+      padding: 1rem;
+      margin: 0.5rem;
+      max-width: 100%;
+    }
+  
+    .form-group label {
+      font-size: 0.85rem;
+    }
+  
+    .form-group input,
+    .form-group textarea {
+      font-size: 0.95rem;
+      padding: 0.65rem;
+    }
+  
+    .submit-btn {
+      font-size: 0.95rem;
+      padding: 0.65rem;
+    }
+  }
+  
+  /* Accessibility: High contrast for focus */
+  @media (prefers-contrast: high) {
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #1e40af;
+      box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.5);
+    }
+  
+    .submit-btn {
+      background-color: #1e40af;
+    }
+  
+    .submit-btn:hover {
+      background-color: #1e3a8a;
+    }
+  }

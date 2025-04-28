@@ -1,0 +1,238 @@
+/* Container for the login page */
+.login-page {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Heading */
+  .login-page h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Form */
+  .login-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Form group */
+  .login-page .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+  }
+  
+  /* Labels */
+  .login-page .form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #111827;
+  }
+  
+  /* Inputs */
+  .login-page input {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background-color: #f9fafb;
+    color: #111827;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .login-page input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  }
+  
+  .login-page input::placeholder {
+    color: #9ca3af;
+  }
+  
+  /* Error messages */
+  .login-page .error {
+    color: #dc2626;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+  }
+  
+  /* Submit button */
+  .login-page button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .login-page button:hover {
+    background-color: #2563eb;
+  }
+  
+  .login-page button:active {
+    transform: scale(0.95);
+  }
+  
+  .login-page button:disabled {
+    background-color: #d1d5db;
+    cursor: not-allowed;
+  }
+  
+  /* Loader */
+  .login-page .loader {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid #ffffff;
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Register link */
+  .login-page p {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #4b5563;
+  }
+  
+  .login-page a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .login-page a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .login-page {
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+  
+    .login-page h2 {
+      font-size: 1.25rem;
+    }
+  
+    .login-page input,
+    .login-page button {
+      font-size: 0.95rem;
+      padding: 0.65rem;
+    }
+  }
+  
+  /* Accessibility: High contrast mode */
+  @media (prefers-contrast: high) {
+    .login-page {
+      border: 2px solid #1e40af;
+    }
+  
+    .login-page h2 {
+      color: #000000;
+    }
+  
+    .login-page input {
+      border-color: #1e40af;
+      background-color: #ffffff;
+    }
+  
+    .login-page button {
+      background-color: #1e40af;
+    }
+  
+    .login-page button:hover {
+      background-color: #1e3a8a;
+    }
+  
+    .login-page .error {
+      color: #b91c1c;
+    }
+  
+    .login-page a {
+      color: #1e40af;
+    }
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .login-page {
+      background-color: #1f2937;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  
+    .login-page h2 {
+      color: #e5e7eb;
+    }
+  
+    .login-page .form-group label {
+      color: #e5e7eb;
+    }
+  
+    .login-page input {
+      background-color: #374151;
+      border-color: #4b5563;
+      color: #e5e7eb;
+    }
+  
+    .login-page input::placeholder {
+      color: #9ca3af;
+    }
+  
+    .login-page input:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+    }
+  
+    .login-page button {
+      background-color: #60a5fa;
+    }
+  
+    .login-page button:hover {
+      background-color: #3b82f6;
+    }
+  
+    .login-page .loader {
+      border: 3px solid #e5e7eb;
+      border-top-color: #60a5fa;
+    }
+  
+    .login-page .error {
+      color: #f87171;
+    }
+  
+    .login-page p {
+      color: #d1d5db;
+    }
+  
+    .login-page a {
+      color: #60a5fa;
+    }
+  }

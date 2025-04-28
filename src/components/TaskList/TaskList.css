@@ -1,0 +1,224 @@
+.task-list-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-list-heading {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .error {
+    color: #d32f2f;
+    background-color: #ffebee;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  .task-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .task-list li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: box-shadow 0.2s;
+  }
+  
+  .task-list li:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-name {
+    flex: 1 1 200px;
+    font-size: 1.1rem;
+    color: #333;
+    margin-right: 15px;
+  }
+  
+  .task-name.completed {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  .task-due-date,
+  .task-description,
+  .task-status {
+    flex: 1 1 150px;
+    font-size: 0.9rem;
+    color: #555;
+    margin-right: 15px;
+  }
+  
+  .task-description {
+    max-width: 300px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .toggle-btn,
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 12px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+  }
+  
+  .toggle-btn {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .toggle-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .edit-btn {
+    background-color: #2196f3;
+    color: #fff;
+  }
+  
+  .edit-btn:hover {
+    background-color: #1e88e5;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  .empty-state {
+    text-align: center;
+    color: #888;
+    font-size: 1rem;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  
+  .edit-task-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 100%;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-task-form input,
+  .edit-task-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .edit-task-form input:focus,
+  .edit-task-form textarea:focus {
+    outline: none;
+    border-color: #2196f3;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+  }
+  
+  .edit-task-form textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+  
+  .edit-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+  
+  .save-btn,
+  .cancel-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+  }
+  
+  .save-btn {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .save-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .cancel-btn {
+    background-color: #757575;
+    color: #fff;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #616161;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .task-list li {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .task-name,
+    .task-due-date,
+    .task-description,
+    .task-status {
+      flex: 1 1 100%;
+      margin-right: 0;
+    }
+  
+    .toggle-btn,
+    .edit-btn,
+    .delete-btn {
+      margin-left: 0;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .edit-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .save-btn,
+    .cancel-btn {
+      width: 100%;
+    }
+  }
